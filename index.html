@@ -1,12 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USC</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
+
 <body>
-    <h1>USC</h1>
-    <p>equipo</p>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="logo-wrapper">
+                    <div class="logo-container">
+                        <img src="img/USC.svg" alt="USC Logo" class="hero-logo">
+                    </div>
+                </div>
+                <h1 class="hero-title">A JUGAR</h1>
+            </div>
+        </section>
+    
+        <section class="fuentes">
+            <div class="item-fuente">Akira Expanded</div>
+            <div class="item-fuente">Blank Script</div>
+            <div class="item-fuente">Montserrat</div>
+        </section>
+
+        <section class="paleta-colores">
+            <div class="item-paleta bg-negro"></div>
+            <div class="item-paleta bg-morado"></div>
+            <div class="item-paleta bg-verde"></div>
+            <div class="item-paleta bg-gris-claro"></div>
+            <div class="item-paleta bg-gris-oscuro"></div>
+            <div class="item-paleta bg-blanco"></div>
+            <div class="item-paleta degradado"></div>
+        </section>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroSection = document.querySelector('.hero');
+            const logoContainer = document.querySelector('.logo-container');
+            
+            const maxRotation = 30; // degrees - more subtle for polish
+            
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = heroSection.getBoundingClientRect();
+                
+                // Get mouse position relative to hero center (-0.5 to 0.5)
+                const xPos = (e.clientX - rect.left) / rect.width - 0.5;
+                const yPos = (e.clientY - rect.top) / rect.height - 0.5;
+                
+                // Calculate rotation
+                const rotateY = xPos * maxRotation;
+                const rotateX = -yPos * maxRotation;
+                
+                gsap.to(logoContainer, {
+                    rotateX: rotateX,
+                    rotateY: rotateY,
+                    scale: 1.02,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // Smooth reset on mouse leave
+            heroSection.addEventListener('mouseleave', () => {
+                gsap.to(logoContainer, {
+                    rotateX: 0,
+                    rotateY: 0,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: 'elastic.out(1, 0.5)'
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>

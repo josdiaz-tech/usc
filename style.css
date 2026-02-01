@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'Akira Expanded';
+    src: url('fonts/akira_expanded/AkiraExpandedDemo.otf');
+}
+
+@font-face {
+    font-family: 'Blank Script';
+    src: url('fonts/blank_script/BlankScript.otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-negro: #070707;
+    --negro: #1e202c;
+    --morado: #6944f2;
+    --verde: #d2ff00;
+    --gris-claro: #bfc0d1;
+    --gris-oscuro: #31323e;
+    --blanco: #ffffff;
+    --font-principal: 'Akira Expanded', cursive;
+    --font-secundaria: 'Blank Script', cursive;
+    --font-terciaria: 'Montserrat', sans-serif;
+}
+
+
+
+body {
+    background-color: var(--bg-negro);
+    color: var(--blanco);
+    /* Capas de degradado: el primero se dibuja sobre el segundo */
+   
+}
+
+
+
+
+.bg-negro {
+    background-color: var(--negro);
+    border: 1px solid var(--blanco);
+}
+
+.bg-morado {
+    background-color: var(--morado);
+}
+
+.bg-verde {
+    background-color: var(--verde);
+}
+
+.bg-gris-claro {
+    background-color: var(--gris-claro);
+}
+
+.bg-gris-oscuro {
+    background-color: var(--gris-oscuro);
+    border: 1px solid var(--blanco);
+}
+
+.bg-blanco {
+    background-color: var(--blanco);
+}
+
+.degradado {
+
+    background: radial-gradient(circle, rgba(210, 255, 0, 1) 0%, rgba(210, 255, 0, 0) 100%);
+}
+
+
+/* seccion de showcase fuentes */
+.fuentes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.item-fuente {
+    font-family: var(--font-principal);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--blanco);
+}
+
+.f1 {
+    font-family: var(--font-principal);
+}
+
+.item-fuente:nth-child(2),
+.f2 {
+    font-family: var(--font-secundaria);
+}
+
+.item-fuente:nth-child(3),
+.f3 {
+    font-family: var(--font-terciaria);
+}
+
+/* seccion de showcase paleta de colores */
+.paleta-colores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.item-paleta {
+    width: 100px;
+    height: 100px;
+    border-radius: 28px;
+}
+
+/*estilos generales*/
+.title {
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--blanco);
+}
+
+
+.fondo-usc {
+    background-color: var(--bg-negro);
+    color: var(--blanco);
+    /* Capas de degradado: el primero se dibuja sobre el segundo */
+    /* Fondo base negro */
+    /* Capas de degradado: el primero se dibuja sobre el segundo */
+    background:
+        /* Gradiente 1: Basado en .st1 (Centro 50% 50%) */
+        radial-gradient(circle farthest-corner at 100% 100%, rgb(210 255 0 / 21%) 0%, #0000009e 45%),
+        /* Gradiente 2: Basado en el primero (Posición desplazada) */
+        /* Nota: Usamos coordenadas relativas para el efecto de esquina */
+        radial-gradient(circle farthest-side at 0% 0%, rgb(210 255 0 / 67%) 0%, #000000 42%)
+}
+
+/*hero section*/
+.hero {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    /* background: 
+        radial-gradient(ellipse at 50% 80%, rgba(105, 68, 242, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 20%, rgba(210, 255, 0, 0.05) 0%, transparent 40%); */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.hero-title {
+    font-family: var(--font-principal);
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 400;
+    color: var(--blanco);
+    letter-spacing: 0.15em;
+    text-shadow: 
+        0 0 20px rgba(105, 68, 242, 0.5),
+        0 0 40px rgba(105, 68, 242, 0.3),
+        0 0 60px rgba(105, 68, 242, 0.2);
+    position: relative;
+    z-index: 10;
+    position: absolute;
+    top: 77% ;
+    left: 50%;
+    width: 90vw;
+    transform: translate(-50%,-50%);
+
+}
+
+.logo-wrapper {
+    perspective: 1000px;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.logo-container {
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-logo {
+    width: clamp(400px, 60vw, 800px);
+    height: auto;
+    transform-style: preserve-3d;
+    will-change: transform;
+    filter: drop-shadow(0 0 15px rgba(105, 68, 242, 0.2));
+    transition: filter 0.3s ease;
+}
+
+.hero-logo:hover {
+    filter: drop-shadow(0 0 25px rgba(105, 68, 242, 0.35));
+}
