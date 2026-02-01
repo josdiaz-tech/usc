@@ -34,6 +34,7 @@
 body {
     background-color: var(--bg-negro);
     color: var(--blanco);
+    background: "radial-gradient(125% 125% at 50% 90%, #000000 40%, #0d1a36 100%)",
     /* Capas de degradado: el primero se dibuja sobre el segundo */
    
 }
